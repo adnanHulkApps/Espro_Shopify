@@ -893,3 +893,44 @@ class VariantRadios extends VariantSelects {
 }
 
 customElements.define('variant-radios', VariantRadios);
+
+// Adnan Swiper
+
+const swiper = new Swiper(".swiper", {
+  slidesPerView: 1.2,
+  spaceBetween: 15,
+
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // Breakpoints
+
+  breakpoints: {
+    1200: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+  },
+
+  scrollbar: {
+    el: ".swiper-scrollbar",
+    hide: true,
+  },
+});
