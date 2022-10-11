@@ -5,24 +5,42 @@
 <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
 
 
-<div class="adnan">
+<div class="container py-5">
 
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-      <div class="swiper-slide">Slide 6</div>
-      <div class="swiper-slide">Slide 7</div>
-      <div class="swiper-slide">Slide 8</div>
-      <div class="swiper-slide">Slide 9</div>
+  <div class="row">
+
+<div class="col-12 position-relative">
+
+    <div class="swiper mySwiper pb-5">
+      <div class="swiper-wrapper">
+        
+          
+          {% for product in collections['best-sellers'].products %}
+              <div class="swiper-slide"> 
+                  {% render 'card-product', show_vendor: section.settings.show_vendor, card_product: product %} 
+
+              </div>
+          {% endfor %}
+        
+
+
+      </div>
+      <div class="swiper-pagination d-block d-md-none"></div>
     </div>
+
+<div class="swiper-button-prev bg-light p-5 rounded-circle shadow d-none d-md-flex">
+        <img src="{{ 'arrowLeft.svg' | asset_url }}" alt="previous">
+      </div>
+    <div class="swiper-button-next bg-light p-5 rounded-circle shadow d-none d-md-flex">
+      <img src="{{ 'arrowRight.svg' | asset_url }}" alt="next">
+    </div>
+</div>
+    
   </div>
+
+
 </div>
 
-{% render 'card-product', show_vendor: section.settings.show_vendor %}
 
 
 {% schema %}
