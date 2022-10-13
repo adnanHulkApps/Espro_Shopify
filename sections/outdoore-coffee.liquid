@@ -1,0 +1,84 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+
+<section class="image-section">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md-6 d-none d-md-flex flex-column justify-content-center">
+        <div class="pe-5">
+          <div class="image-section-bg-effect position-relative mb-5">
+            <img
+              class="w-50"
+              src="{{ section.settings.image_left_top | img_url:'master'}}"
+              alt="Image"
+            >
+          </div>
+          <img
+            class="img-fluid mt-5"
+            src="{{ section.settings.image_left_bottom | img_url:'master'}}"
+            alt="Image"
+          >
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <h3 class="text-uppercase">{{ section.settings.title }}</h3>
+        <h2>{{ section.settings.subtitle }}</h2>
+        <p class="mb-5">{{ section.settings.description }}</p>
+        <img
+          class="img-fluid mt-5"
+          src="{{ section.settings.image_right | img_url:'master'}}"
+          alt="Image right"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "presets": [
+        {
+            "name": "Outdoore coffee",
+            "category": "category name"
+        }
+    ],
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+        "type": "header",
+        "content": "Outdoore coffee section"
+      },
+       {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+       {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_right",
+        "label": "Image right"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_left_top",
+        "label": "Image left top"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_left_bottom",
+        "label": "Image left bottom"
+      }
+    ]
+  }
+      {% endschema %}
